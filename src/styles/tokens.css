@@ -1,0 +1,140 @@
+/* ════════════════════════════════════════════════════════════
+   DESIGN TOKENS: Black & Gold
+   The single source of truth for colour, type, spacing, shape
+   and elevation. Components use the semantic tokens below and
+   never hard-code values.
+
+   Foundation values (keep these unchanged):
+   primary #d8b068 · background #050505 · text #ededed
+   Outfit 900 headings · Inter 400 body
+   radius 6px general / 16px cards
+   card rgba(15,15,15,.95) with 1px rgba(216,176,104,.3) border
+   ════════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Raw palette (only referenced by semantic tokens) ── */
+  --gold-500: #d8b068;          /* foundation primary */
+  --gold-300: #e8cd98;
+  --gold-400: #e2bf7f;
+  --gold-600: #c49a52;
+  --gold-700: #a88a54;
+  --gold-rgb: 216, 176, 104;
+  --black-950: #050505;         /* foundation background */
+  --black-900: #0b0b0b;
+  --black-850: #0f0f0f;
+  --black-800: #141414;
+  --black-700: #1c1c1c;
+  --white-100: #ededed;         /* foundation text */
+  --white-rgb: 237, 237, 237;
+
+  /* ── Brand ── */
+  --color-gold: var(--gold-500);
+  --color-gold-secondary: var(--gold-300);
+  --color-gold-muted: var(--gold-700);
+  --color-gold-hover: var(--gold-400);
+  --color-gold-active: var(--gold-600);
+  --color-gold-surface: rgba(var(--gold-rgb), 0.08);
+  --color-gold-surface-strong: rgba(var(--gold-rgb), 0.16);
+
+  /* ── Backgrounds & surfaces ── */
+  --bg: var(--black-950);
+  --bg-secondary: var(--black-900);
+  --bg-elevated: var(--black-800);
+  --surface-card: rgba(15, 15, 15, 0.95);
+  --surface-card-solid: var(--black-850);
+  --surface-raised: var(--black-700);
+  --surface-nav: rgba(8, 8, 8, 0.82);
+  --surface-modal: var(--black-800);
+  --overlay: rgba(0, 0, 0, 0.72);
+
+  /* ── Text ── */
+  --text: var(--white-100);
+  --text-secondary: rgba(var(--white-rgb), 0.74);
+  --text-muted: rgba(var(--white-rgb), 0.56);
+  --text-disabled: rgba(var(--white-rgb), 0.34);
+  --text-inverse: var(--black-950);
+  --text-accent: var(--color-gold);
+
+  /* ── Borders ── */
+  --border: rgba(var(--white-rgb), 0.1);
+  --border-subtle: rgba(var(--white-rgb), 0.06);
+  --border-accent: rgba(var(--gold-rgb), 0.3);
+  --border-hover: rgba(var(--gold-rgb), 0.6);
+  --border-focus: var(--color-gold);
+
+  /* ── Interaction ── */
+  --state-hover: rgba(var(--white-rgb), 0.06);
+  --state-active: rgba(var(--white-rgb), 0.1);
+  --state-selected: var(--color-gold-surface-strong);
+  --state-disabled: rgba(var(--white-rgb), 0.08);
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--border-focus);
+
+  /* ── Elevation (borders and surface contrast first, shadows kept subtle) ── */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 18px 48px -22px rgba(0, 0, 0, 0.85);
+  --shadow-lg: 0 34px 80px -34px rgba(0, 0, 0, 0.95);
+  --shadow-gold: 0 16px 40px -20px rgba(var(--gold-rgb), 0.45);
+  --glow-gold: 0 0 0 1px var(--border-hover), 0 24px 60px -30px rgba(var(--gold-rgb), 0.4);
+
+  /* ── Typography ── */
+  --font-display: 'Outfit Variable', 'Outfit', system-ui, sans-serif;
+  --font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --fw-display: 900;
+  --fw-heading: 800;
+  --fw-semibold: 600;
+  --fw-medium: 500;
+  --fw-body: 400;
+  --tracking-display: -0.035em;
+  --tracking-heading: -0.025em;
+  --tracking-eyebrow: 0.14em;
+
+  --fs-display: clamp(64px, 9.6vw, 168px);
+  --fs-h1: clamp(48px, 6.4vw, 104px);
+  --fs-h2: clamp(40px, 5.6vw, 88px);
+  --fs-h3: clamp(24px, 2.2vw, 32px);
+  --fs-h4: 22px;
+  --fs-h5: 18px;
+  --fs-body-lg: clamp(17px, 1.3vw, 19px);
+  --fs-body: 16px;
+  --fs-body-sm: 14.5px;
+  --fs-caption: 13px;
+  --fs-eyebrow: 12.5px;
+  --fs-label: 14px;
+  --fs-nav: 15px;
+  --fs-button: 15px;
+  --fs-meta: 12.5px;
+
+  /* ── Spacing (foundation: 4, 6, 12, 16, 20, 32) ── */
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --gx: clamp(18px, 4vw, 56px);                 /* page gutter */
+  --section-y: clamp(90px, 13vh, 150px);        /* section padding */
+  --container: 1240px;
+  --reading: 68ch;
+
+  /* ── Shape ── */
+  --radius-sm: 6px;            /* foundation general radius */
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-card: 16px;         /* foundation card radius */
+  --radius-btn: 6px;
+  --radius-input: 6px;
+  --radius-image: 10px;
+  --radius-modal: 16px;
+  --radius-pill: 999px;
+
+  /* ── Motion ── */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.2s;
+  --dur: 0.35s;
+  --dur-slow: 0.6s;
+}

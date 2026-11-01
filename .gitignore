@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+*.log
+.env
+.vscode
+
+# Original assets (PDFs contain teammates' contact details): keep local, never publish
+assets-src/resources/
